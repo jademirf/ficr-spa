@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vuejs - conceitos iniciais</title>
+</head>
+<body>
+	<div id="app">
+		<h1>{{ title }}</h1>
+		<ul>
+			<li v-for="fruta in frutas" :key="index">{{ fruta }}</li>
+		</ul>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+	const app = new Vue({
+		el: '#app',
+		data: {
+			title: 'Vuejs - Conceitos iniciais',
+			frutas: [
+				'laranja',
+				'maçã',
+				'banana',
+				'abacate',
+				'manga'
+			]
+		}
+	})
+</script>
+</html>
