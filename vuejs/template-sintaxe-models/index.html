@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vuejs - template sintaxe</title>
+</head>
+<body>
+	<div id="app">
+		<header>
+			<h1>{{ title ? title : 'aula 02' }}</h1>
+		</header>
+		<main>
+			<section>
+				<h2>Utilize o input abaixo para acrescentar frutas a lista</h2>
+				<input type="text" v-model="novaFruta" @keyup.enter="frutas.push(novaFruta)">
+				<button @click="frutas.push(novaFruta)">adicionar</button>
+			</section>
+			<section id="lista">
+				<p v-if="frutas.length === 0">Nenhum fruta adicionada!</p>
+				<ul v-if="frutas.length > 0">
+					<li v-for="fruta in frutas" :key="fruta.index">{{ fruta }}</li>
+				</ul>
+			</section>
+		</main>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+	const app = new Vue({
+		el: '#app',
+		data: {
+			title: 'Vue - sintaxe do template, v-model, v-if',
+			novaFruta: '',
+			frutas: []
+		}
+	})
+</script>
+</html>
